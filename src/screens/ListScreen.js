@@ -36,7 +36,8 @@ export default function ListScreen({ route, navigation }) {
         renderItem={({ item }) => (
           <TouchableOpacity 
             style={styles.card} 
-            onPress={() => navigation.navigate('ProductDetail', { productId: item.id })}
+            // THE FIX: Passing the whole 'item' as 'product'
+            onPress={() => navigation.navigate('ProductDetail', { product: item })}
           >
             <Image source={{ uri: item.image }} style={styles.image} resizeMode="contain" />
             <Text style={styles.title} numberOfLines={2}>{item.title}</Text>
